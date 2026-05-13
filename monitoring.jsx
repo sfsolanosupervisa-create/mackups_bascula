@@ -50,7 +50,7 @@ const STEPS_B1 = [
     operation: 'disp', state: 'active',
   },
   { // 2 - se activa
-    sensorsTop: ['off','off','off'], sensorsBottom: ['off','off','off'],
+    sensorsTop: ['green','off','off'], sensorsBottom: ['green','off','off'],
     truckPos: '-25%', truckVisible: false,
     weight: 0, weightBlink: true,
     plate: '',
@@ -58,7 +58,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 3 - vehículo ingresando (anim from -25% to 50%)
-    sensorsTop: ['green','off','off'], sensorsBottom: ['green','off','off'],
+    sensorsTop: ['off','green','off'], sensorsBottom: ['off','green','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: false,
@@ -107,7 +107,7 @@ const STEPS_B2 = [
     desc: 'Fallo de comunicación: se requiere intervención del operador.',
   },
   { // 3 - en proceso (anim from -25% to 50%)
-    sensorsTop: ['green','off','off'], sensorsBottom: ['green','off','off'],
+    sensorsTop: ['off','green','off'], sensorsBottom: ['off','green','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: true,
