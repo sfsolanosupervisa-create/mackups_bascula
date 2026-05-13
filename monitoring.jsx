@@ -50,7 +50,7 @@ const STEPS_B1 = [
     operation: 'disp', state: 'active',
   },
   { // 2 - se activa
-    sensorsTop: ['yellow','off','off'], sensorsBottom: ['yellow','off','off'],
+    sensorsTop: ['off','off','off'], sensorsBottom: ['off','off','off'],
     truckPos: '-25%', truckVisible: false,
     weight: 0, weightBlink: true,
     plate: '',
@@ -58,7 +58,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 3 - vehículo ingresando (anim from -25% to 50%)
-    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','yellow','off'],
+    sensorsTop: ['green','off','off'], sensorsBottom: ['green','off','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: false,
@@ -67,7 +67,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 4 - ubicado correctamente
-    sensorsTop: ['green','green','green'], sensorsBottom: ['green','green','green'],
+    sensorsTop: ['green','green','off'], sensorsBottom: ['green','green','off'],
     truckPos: '50%', truckVisible: true,
     weight: 15230, weightBlink: false,
     plate: 'ABC994',
@@ -75,7 +75,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 5 - vehículo saliendo (anim from 50% to 120%)
-    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','off','yellow'],
+    sensorsTop: ['off','off','off'], sensorsBottom: ['off','off','off'],
     truckPos: '120%', truckVisible: true,
     truckAnim: { from: '50%', to: '120%', duration: 2800 },
     weight: 3120, weightBlink: false,
@@ -107,7 +107,7 @@ const STEPS_B2 = [
     desc: 'Fallo de comunicación: se requiere intervención del operador.',
   },
   { // 3 - en proceso (anim from -25% to 50%)
-    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','yellow','off'],
+    sensorsTop: ['green','off','off'], sensorsBottom: ['green','off','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: true,
@@ -116,7 +116,7 @@ const STEPS_B2 = [
     operation: 'busy', state: 'active',
   },
   { // 4 - ubicado correctamente
-    sensorsTop: ['green','green','green'], sensorsBottom: ['green','green','green'],
+    sensorsTop: ['green','green','off'], sensorsBottom: ['green','green','off'],
     truckPos: '50%', truckVisible: true,
     weight: 6400, weightBlink: false,
     plate: 'XYZ712',
@@ -125,7 +125,7 @@ const STEPS_B2 = [
     desc: 'Vehículo correctamente posicionado sobre la báscula.',
   },
   { // 5 - peso registrado
-    sensorsTop: ['green','green','green'], sensorsBottom: ['green','green','green'],
+    sensorsTop: ['green','green','off'], sensorsBottom: ['green','green','off'],
     truckPos: '50%', truckVisible: true,
     weight: 6400, weightBlink: false,
     plate: 'XYZ712',
@@ -134,7 +134,7 @@ const STEPS_B2 = [
     desc: 'Peso confirmado y registrado en el sistema.',
   },
   { // 6 - vehículo saliendo
-    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','off','yellow'],
+    sensorsTop: ['off','off','off'], sensorsBottom: ['off','off','off'],
     truckPos: '78%', truckVisible: true,
     weight: 3120, weightBlink: false,
     plate: 'XYZ712',

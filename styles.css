@@ -295,7 +295,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   text-transform: uppercase;
 }
 .field .input-wrap { position: relative; }
-.field input, .field select {
+.field input:not([type="checkbox"]), .field select {
   width: 100%;
   height: 38px;
   border: 1px solid var(--border);
@@ -308,8 +308,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transition: border-color .15s, box-shadow .15s;
   font-family: inherit;
 }
-.field input::placeholder { color: var(--text-muted); }
-.field input:focus, .field select:focus {
+.field input[type="checkbox"] {
+  width: 15px; height: 15px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+.field input:not([type="checkbox"])::placeholder { color: var(--text-muted); }
+.field input:not([type="checkbox"]):focus, .field select:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(43,196,138,0.15);
 }
@@ -374,6 +380,17 @@ td.actions { position: relative; }
   border-radius: var(--radius-sm);
   font-size: 12.5px;
   color: #5a4a00;
+}
+
+.weighs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 3px;
+  letter-spacing: 0.3px;
 }
 
 /* Driver / Avatar */

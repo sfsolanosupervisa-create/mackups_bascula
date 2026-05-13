@@ -90,7 +90,7 @@ const ClienteVIPModal = ({ initial, mode, rangeMode, onClose, onSave, onDelete }
               </div>
               <div className="field" style={{gridColumn:'1/-1'}}>
                 <label>PESA EN BÁSCULA</label>
-                <label style={{display:'flex',alignItems:'center',gap:8,cursor:readOnly?'default':'pointer',fontWeight:400,fontSize:13}}>
+                <label style={{display:'flex',alignItems:'center',gap:8,cursor:readOnly?'default':'pointer',fontWeight:400,fontSize:13,textTransform:'none',letterSpacing:'normal',color:'var(--text-primary)'}}>
                   <input type="checkbox"
                     disabled={readOnly}
                     checked={!!data.weighs}

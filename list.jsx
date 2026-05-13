@@ -3,14 +3,14 @@ const { useState: useS2, useMemo: useM2, useEffect: useE2, useRef: useR2 } = Rea
 
 // Sample data
 const SAMPLE = [
-  { id: 1, plate: "ABC-123", idType: "CC", idNum: "1.045.678.234", first: "Carlos", last: "Ramírez González", company: "Logística del Caribe S.A.S.", phone: "+57 310 555 1234", start: "2026-04-15", end: "2026-12-31", status: "active" },
-  { id: 2, plate: "XKZ-845", idType: "CC", idNum: "52.789.123",    first: "María",  last: "Fernández López",     company: "Transportes Andinos",         phone: "+57 315 442 8901", start: "2026-01-10", end: "2026-05-12", status: "warn" },
-  { id: 3, plate: "TRP-019", idType: "CE", idNum: "612.445",        first: "Andrés", last: "Restrepo Ochoa",       company: "Carbones del Norte",          phone: "+57 320 110 4422", start: "2025-09-01", end: "2026-03-30", status: "expired" },
-  { id: 4, plate: "WBR-562", idType: "CC", idNum: "1.098.234.567", first: "Laura",  last: "Mendoza Vargas",       company: "AgroExport Colombia",         phone: "+57 304 887 2210", start: "2026-05-01", end: "2027-05-01", status: "active" },
-  { id: 5, plate: "JPL-308", idType: "CC", idNum: "79.345.612",    first: "Diego",  last: "Salazar Quintero",     company: "Cementos del Valle",          phone: "+57 312 003 9988", start: "2026-04-20", end: "2026-05-20", status: "warn" },
-  { id: 6, plate: "QRM-714", idType: "CC", idNum: "63.554.211",    first: "Patricia", last: "Gómez Herrera",      company: "Acerías Pacífico",            phone: "+57 318 776 5544", start: "2026-03-01", end: "2026-09-01", status: "active" },
-  { id: 7, plate: "LDV-201", idType: "PA", idNum: "P98745632",     first: "Roberto", last: "Acosta Bermúdez",     company: "Petrolera del Sur",           phone: "+57 321 558 4477", start: "2025-11-15", end: "2026-04-15", status: "expired" },
-  { id: 8, plate: "FNT-922", idType: "CC", idNum: "1.022.987.654", first: "Sandra", last: "Vélez Cárdenas",       company: "Comercializadora Norte",      phone: "+57 313 224 1188", start: "2026-04-01", end: "2026-10-31", status: "active" },
+  { id: 1, plate: "ABC-123", idType: "CC", idNum: "1.045.678.234", first: "Carlos",   last: "Ramírez González", company: "Logística del Caribe S.A.S.", phone: "+57 310 555 1234", start: "2026-04-15", end: "2026-12-31", status: "active",  weighs: true  },
+  { id: 2, plate: "XKZ-845", idType: "CC", idNum: "52.789.123",    first: "María",    last: "Fernández López",   company: "Transportes Andinos",         phone: "+57 315 442 8901", start: "2026-01-10", end: "2026-05-12", status: "warn",    weighs: false },
+  { id: 3, plate: "TRP-019", idType: "CE", idNum: "612.445",        first: "Andrés",  last: "Restrepo Ochoa",    company: "Carbones del Norte",          phone: "+57 320 110 4422", start: "2025-09-01", end: "2026-03-30", status: "expired", weighs: true  },
+  { id: 4, plate: "WBR-562", idType: "CC", idNum: "1.098.234.567", first: "Laura",    last: "Mendoza Vargas",    company: "AgroExport Colombia",         phone: "+57 304 887 2210", start: "2026-05-01", end: "2027-05-01", status: "active",  weighs: false },
+  { id: 5, plate: "JPL-308", idType: "CC", idNum: "79.345.612",    first: "Diego",    last: "Salazar Quintero",  company: "Cementos del Valle",          phone: "+57 312 003 9988", start: "2026-04-20", end: "2026-05-20", status: "warn",    weighs: true  },
+  { id: 6, plate: "QRM-714", idType: "CC", idNum: "63.554.211",    first: "Patricia", last: "Gómez Herrera",     company: "Acerías Pacífico",            phone: "+57 318 776 5544", start: "2026-03-01", end: "2026-09-01", status: "active",  weighs: true  },
+  { id: 7, plate: "LDV-201", idType: "PA", idNum: "P98745632",     first: "Roberto",  last: "Acosta Bermúdez",   company: "Petrolera del Sur",           phone: "+57 321 558 4477", start: "2025-11-15", end: "2026-04-15", status: "expired", weighs: false },
+  { id: 8, plate: "FNT-922", idType: "CC", idNum: "1.022.987.654", first: "Sandra",   last: "Vélez Cárdenas",    company: "Comercializadora Norte",      phone: "+57 313 224 1188", start: "2026-04-01", end: "2026-10-31", status: "active",  weighs: true  },
 ];
 
 const fmtDate = (s) => {
@@ -160,6 +160,14 @@ const Row = ({ r, onEdit, onView, onDelete, onToggleActive, onRenew, openMenu, s
           <span className="dot"/>{statusInfo[r.status].label}
         </span>
       </td>
+      <td style={{textAlign:'center'}}>
+        {r.weighs
+          ? <span className="weighs-badge" style={{justifyContent:'center'}}>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><polyline points="7 14 12 9 17 14"/></svg>
+              Sí
+            </span>
+          : <span style={{color:'var(--text-muted)',fontSize:12}}>—</span>}
+      </td>
       <td className="actions" onClick={(e) => e.stopPropagation()}>
         <button className="btn-icon edit" title="Editar" onClick={() => onEdit(r)}><Icon.Edit/></button>
         <button className="btn-icon" title="Más acciones"
@@ -262,12 +270,13 @@ const ClientesVIPList = ({ data, onCreate, onEdit, onView, onDelete, onToggleAct
               <th {...thProps("company")}>EMPRESA <span className="sort-arrow">{sortArrow("company")}</span></th>
               <th {...thProps("end")}>RANGO DE ACCESO <span className="sort-arrow">{sortArrow("end")}</span></th>
               <th {...thProps("status")}>ESTADO <span className="sort-arrow">{sortArrow("status")}</span></th>
+              <th style={{textAlign:'center'}}>PESA</th>
               <th style={{textAlign:'right'}}>ACCIONES</th>
             </tr>
           </thead>
           <tbody>
             {pageRows.length === 0 ? (
-              <tr><td colSpan={6} className="empty">
+              <tr><td colSpan={7} className="empty">
                 <Icon.Search size={36}/>
                 <div>No se encontraron clientes con los filtros aplicados.</div>
                 <button className="btn btn-secondary" style={{marginTop:14}} onClick={clearAll}>Limpiar filtros</button>
