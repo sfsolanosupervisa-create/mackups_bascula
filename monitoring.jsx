@@ -50,7 +50,7 @@ const STEPS_B1 = [
     operation: 'disp', state: 'active',
   },
   { // 2 - se activa
-    sensorsTop: ['yellow','off','off'], sensorsBottom: ['off','off','off'],
+    sensorsTop: ['yellow','off','off'], sensorsBottom: ['yellow','off','off'],
     truckPos: '-25%', truckVisible: false,
     weight: 0, weightBlink: true,
     plate: '',
@@ -58,7 +58,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 3 - vehículo ingresando (anim from -25% to 50%)
-    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','off','off'],
+    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','yellow','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: false,
@@ -75,7 +75,7 @@ const STEPS_B1 = [
     operation: 'busy', state: 'active',
   },
   { // 5 - vehículo saliendo (anim from 50% to 120%)
-    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','green','green'],
+    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','off','yellow'],
     truckPos: '120%', truckVisible: true,
     truckAnim: { from: '50%', to: '120%', duration: 2800 },
     weight: 3120, weightBlink: false,
@@ -107,7 +107,7 @@ const STEPS_B2 = [
     desc: 'Fallo de comunicación: se requiere intervención del operador.',
   },
   { // 3 - en proceso (anim from -25% to 50%)
-    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','off','off'],
+    sensorsTop: ['green','yellow','off'], sensorsBottom: ['green','yellow','off'],
     truckPos: '50%', truckVisible: true,
     truckAnim: { from: '-25%', to: '50%', duration: 2800 },
     weight: 4820, weightBlink: true,
@@ -134,7 +134,7 @@ const STEPS_B2 = [
     desc: 'Peso confirmado y registrado en el sistema.',
   },
   { // 6 - vehículo saliendo
-    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','green','green'],
+    sensorsTop: ['off','off','yellow'], sensorsBottom: ['off','off','yellow'],
     truckPos: '78%', truckVisible: true,
     weight: 3120, weightBlink: false,
     plate: 'XYZ712',

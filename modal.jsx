@@ -15,6 +15,7 @@ const ClienteVIPModal = ({ initial, mode, rangeMode, onClose, onSave, onDelete }
       days: 90,
       dow: [true, true, true, true, true, false, false],
       status: "active",
+      weighs: false,
     };
     return initial ? { ...defaults, ...initial } : defaults;
   });
@@ -86,6 +87,16 @@ const ClienteVIPModal = ({ initial, mode, rangeMode, onClose, onSave, onDelete }
                   disabled={readOnly}
                   value={data.company}
                   onChange={e => update("company", e.target.value)}/>
+              </div>
+              <div className="field" style={{gridColumn:'1/-1'}}>
+                <label>PESA EN BÁSCULA</label>
+                <label style={{display:'flex',alignItems:'center',gap:8,cursor:readOnly?'default':'pointer',fontWeight:400,fontSize:13}}>
+                  <input type="checkbox"
+                    disabled={readOnly}
+                    checked={!!data.weighs}
+                    onChange={e => update("weighs", e.target.checked)}/>
+                  Sí pesa en báscula
+                </label>
               </div>
             </div>
           </div>
